@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-commit"
+version = "0.1.0"
+description = "AI-powered commit message generator using Gemini/OpenAI"
+authors = [{name = "Your Name", email = "your@email.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.1.0",
+    "gitpython>=3.1.30",
+    "python-dotenv>=1.0.0",
+]
+[project.optional-dependencies]
+gemini = ["google-generativeai>=0.3.0"]
+openai = ["openai>=1.0.0"]
+test = ["pytest>=7.2.0", "pytest-cov"]
+
+[project.scripts]
+ai-commit = "ai_commit.cli:cli"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
